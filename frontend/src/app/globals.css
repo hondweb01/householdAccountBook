@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Inter", "Noto Sans JP", sans-serif;
+  --font-mono: var(--font-geist-mono);
+
+  --color-primary: #52b788;
+  /* Soft Emerald/Mint */
+  --color-secondary: #ffb4a2;
+  /* Soft Coral/Apricot */
+  --color-accent: #b7e4c7;
+  /* Pale Green */
+  --color-danger: #e5989b;
+  /* Muted Rose */
+  --color-glass: rgba(255, 255, 255, 0.15);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+}
+
+:root {
+  --background: #fbfbfc;
+  /* Very light warm gray */
+  --foreground: #2d3436;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1e272e;
+    --foreground: #f1f2f6;
+    --glass-bg: rgba(30, 39, 46, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(at 0% 0%, hsla(160, 50%, 95%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(20, 50%, 95%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(220, 50%, 95%, 1) 0, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(280, 50%, 95%, 1) 0, transparent 50%);
+  background-attachment: fixed;
+}
+
+@layer components {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+  }
+}
